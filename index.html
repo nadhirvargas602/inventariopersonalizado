@@ -1,0 +1,56 @@
+let productos = [
+
+{nombre:"Polo",precio:30},
+{nombre:"Vestido",precio:80},
+{nombre:"Pantalón",precio:60}
+
+]
+
+let carrito = []
+let total = 0
+
+let contenedor = document.getElementById("productos")
+
+productos.forEach((p,i)=>{
+
+contenedor.innerHTML += `
+
+<div>
+
+<h3>${p.nombre}</h3>
+
+<p>S/ ${p.precio}</p>
+
+<button onclick="comprar(${i})">Comprar</button>
+
+</div>
+
+`
+
+})
+
+function comprar(i){
+
+carrito.push(productos[i])
+
+total += productos[i].precio
+
+mostrar()
+
+}
+
+function mostrar(){
+
+let c = document.getElementById("carrito")
+
+c.innerHTML=""
+
+carrito.forEach(p=>{
+
+c.innerHTML += `<p>${p.nombre} - ${p.precio}</p>`
+
+})
+
+document.getElementById("total").innerText = total
+
+}
