@@ -1,56 +1,114 @@
-let productos = [
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario y Ventas Kawaii 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
 
-{nombre:"Polo",precio:30},
-{nombre:"Vestido",precio:80},
-{nombre:"Pantalón",precio:60}
+  <h1>🌸 Mi Tiendita Kawaii 🌸</h1>
 
-]
+  <div id="loginBox">
+    <h2>✨ ¡Hola, Administradora! ✨</h2>
+    <input id="usuario" placeholder="👤 Usuario">
+    <input id="password" type="password" placeholder="🔒 Contraseña">
+    <button onclick="login()">Entrar 💖</button>
+    <p id="error" style="color:#ff4d88; font-weight:bold;"></p>
+  </div>
 
-let carrito = []
-let total = 0
+  <div id="sistema">
+    
+    <div class="dashboard-top">
+      <div class="card-gold">
+        <h3>📦 Valor de mi Inventario</h3>
+        <p>Dinero invertido en mercadería actual</p>
+        <h2 id="valorInventario">S/ 0.00</h2>
+      </div>
+      <div class="card-gold">
+        <h3>💖 Ganancia Neta (Mes)</h3>
+        <p>Tu utilidad real descontando costos</p>
+        <h2 id="gananciaMes" style="color:#d81b60;">S/ 0.00</h2>
+      </div>
+    </div>
 
-let contenedor = document.getElementById("productos")
+    <div class="container">
+      <div class="box">
+        <h2>📦 Agregar Producto</h2>
+        <input id="desc" placeholder="Prenda (Ej. Vestido rosa)">
+        <input id="talla" placeholder="Talla">
+        <div class="grid-2">
+            <input id="stock" type="number" placeholder="Stock Inicial">
+            <input id="costo" type="number" placeholder="Tu Costo (S/)">
+        </div>
+        <input id="precio" type="number" placeholder="Precio de Venta al Público (S/)">
+        <button onclick="agregarProducto()">Añadir al Inventario ✨</button>
 
-productos.forEach((p,i)=>{
+        <h3>🔍 Buscar</h3>
+        <input id="buscar" onkeyup="buscarProducto()" placeholder="Escribe para buscar...">
 
-contenedor.innerHTML += `
+        <h3>📋 Mi Inventario</h3>
+        <div class="table-container">
+          <table id="tablaInventario">
+            <thead>
+              <tr>
+                <th>Prenda</th><th>Talla</th><th>Stock</th><th>Costo</th><th>Precio</th><th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <button class="btn-export" onclick="exportarCSV('inventario')">📥 Descargar Inventario</button>
+      </div>
 
-<div>
+      <div class="box">
+        <h2>🛍️ Registrar Venta</h2>
+        <select id="vproducto" onchange="seleccionarProductoVenta()">
+          <option value="">Seleccione un producto...</option>
+        </select>
+        
+        <input id="vcantidad" type="number" placeholder="Cantidad a vender" oninput="calcularTotalVenta()">
+        <input id="vprecio" type="number" placeholder="Precio Unitario" readonly class="input-readonly">
+        <input id="vtotal" type="number" placeholder="Total a Pagar" readonly class="input-readonly total-destacado">
+        
+        <button onclick="registrarVenta()">Vender 💸</button>
 
-<h3>${p.nombre}</h3>
+        <h3>📝 Historial de Ventas</h3>
+        <div class="table-container">
+          <table id="tablaVentas">
+            <thead>
+              <tr>
+                <th>Prenda</th><th>Cant.</th><th>Total</th><th>Ganancia</th><th>Fecha</th><th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <button class="btn-export" onclick="exportarCSV('ventas')">📥 Descargar Ventas</button>
+      </div>
+    </div>
 
-<p>S/ ${p.precio}</p>
+    <h2 style="text-align:center; margin-top: 30px;">📊 Ingresos por Ventas</h2>
+    <div class="dashboard">
+      <div class="card"><h3>Hoy ☀️</h3><h2 id="ventasHoy">0</h2></div>
+      <div class="card"><h3>Semana 📅</h3><h2 id="ventasSemana">0</h2></div>
+      <div class="card"><h3>Quincena 🌷</h3><h2 id="ventasQuincena">0</h2></div>
+      <div class="card"><h3>Mes 🌙</h3><h2 id="ventasMes">0</h2></div>
+    </div>
+    
+    <button onclick="cerrarCaja()" class="btn-cerrar">Cerrar Caja del Día 🔐</button>
 
-<button onclick="comprar(${i})">Comprar</button>
+    <div class="box" style="margin-top: 20px;">
+      <h2>📊 Gráfico de Ingresos</h2>
+      <canvas id="grafico"></canvas>
+    </div>
 
-</div>
+  </div>
 
-`
-
-})
-
-function comprar(i){
-
-carrito.push(productos[i])
-
-total += productos[i].precio
-
-mostrar()
-
-}
-
-function mostrar(){
-
-let c = document.getElementById("carrito")
-
-c.innerHTML=""
-
-carrito.forEach(p=>{
-
-c.innerHTML += `<p>${p.nombre} - ${p.precio}</p>`
-
-})
-
-document.getElementById("total").innerText = total
-
-}
+  <script src="script.js"></script>
+</body>
+</html>
