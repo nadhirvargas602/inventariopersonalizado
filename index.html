@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inventario y Ventas Kawaii 🌸</title>
+  <title>🌸 Mi Tiendita Mágica 🌸</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -11,47 +11,56 @@
 </head>
 <body>
 
-  <h1>🌸 Mi Tiendita Kawaii 🌸</h1>
+  <h1>🎀 Mi Tiendita Mágica 🎀</h1>
 
   <div id="loginBox">
-    <h2>✨ ¡Hola, Administradora! ✨</h2>
-    <input id="usuario" placeholder="👤 Usuario">
-    <input id="password" type="password" placeholder="🔒 Contraseña">
-    <button onclick="login()">Entrar 💖</button>
-    <p id="error" style="color:#ff4d88; font-weight:bold;"></p>
+    <h2>✨ ¡Hola, Administradora LInda! ✨</h2>
+    <input id="usuario" placeholder="👤 Usuario Mágico">
+    <input id="password" type="password" placeholder="🔒 Contraseña Secreta">
+    <button onclick="login()">Entrar al Mundo de Hadas 💖</button>
+    <p id="error" style="color:#ff66a3; font-weight:bold;"></p>
   </div>
 
-  <div id="sistema">
+  <div id="sistema" style="display: none;">
     
+    <div style="text-align: right; margin-bottom: 20px;">
+      <button onclick="location.reload()" class="btn-refresh">🔄 Recargar Magia</button>
+    </div>
+
     <div class="dashboard-top">
-      <div class="card-gold">
-        <h3>📦 Valor de mi Inventario</h3>
-        <p>Dinero invertido en mercadería actual</p>
+      <div class="card card-pastel-pink">
+        <h3>📦 Valor de mi Inventario 💖</h3>
+        <p>Inversión en mi stock actual</p>
         <h2 id="valorInventario">S/ 0.00</h2>
       </div>
-      <div class="card-gold">
-        <h3>💖 Ganancia Neta (Mes)</h3>
-        <p>Tu utilidad real descontando costos</p>
-        <h2 id="gananciaMes" style="color:#d81b60;">S/ 0.00</h2>
+      <div class="card card-pastel-blue">
+        <h3>🔄 Capital Recuperado 🦋</h3>
+        <p>El costo de lo que ya vendiste</p>
+        <h2 id="capitalMes" style="color:#66a3ff;">S/ 0.00</h2>
+      </div>
+      <div class="card card-pastel-green">
+        <h3>💖 Ganancia Neta Real 😍</h3>
+        <p>Utilidad pura para mí</p>
+        <h2 id="gananciaMes" style="color:#00b386;">S/ 0.00</h2>
       </div>
     </div>
 
-    <div class="container">
-      <div class="box">
-        <h2>📦 Agregar Producto</h2>
-        <input id="desc" placeholder="Prenda (Ej. Vestido rosa)">
-        <input id="talla" placeholder="Talla">
+    <div class="container-flex">
+      <div class="box box-primary">
+        <h2>🛍️ Agregar Producto Mágico</h2>
+        <input id="desc" placeholder="Prenda (Ej. Vestido de Hada)">
+        <input id="talla" placeholder="Talla Bonita">
         <div class="grid-2">
             <input id="stock" type="number" placeholder="Stock Inicial">
             <input id="costo" type="number" placeholder="Tu Costo (S/)">
         </div>
-        <input id="precio" type="number" placeholder="Precio de Venta al Público (S/)">
+        <input id="precio" type="number" placeholder="Precio de Venta (S/)">
         <button onclick="agregarProducto()">Añadir al Inventario ✨</button>
 
-        <h3>🔍 Buscar</h3>
+        <h3>🔍 Buscar Producto</h3>
         <input id="buscar" onkeyup="buscarProducto()" placeholder="Escribe para buscar...">
 
-        <h3>📋 Mi Inventario</h3>
+        <h3>📋 Mi Inventario de Tesoros</h3>
         <div class="table-container">
           <table id="tablaInventario">
             <thead>
@@ -65,24 +74,36 @@
         <button class="btn-export" onclick="exportarCSV('inventario')">📥 Descargar Inventario</button>
       </div>
 
-      <div class="box">
-        <h2>🛍️ Registrar Venta</h2>
+      <div class="box box-secondary">
+        <h2>Vender Maravillas 🛍️</h2>
         <select id="vproducto" onchange="seleccionarProductoVenta()">
-          <option value="">Seleccione un producto...</option>
+          <option value="">🎀 Seleccione un producto...</option>
         </select>
         
-        <input id="vcantidad" type="number" placeholder="Cantidad a vender" oninput="calcularTotalVenta()">
-        <input id="vprecio" type="number" placeholder="Precio Unitario" readonly class="input-readonly">
-        <input id="vtotal" type="number" placeholder="Total a Pagar" readonly class="input-readonly total-destacado">
+        <div class="grid-2">
+            <input id="vcantidad" type="number" placeholder="Cantidad" oninput="calcularTotalVenta()">
+            <input id="vdescuento" type="number" placeholder="Descuento S/ ❤️" oninput="calcularTotalVenta()">
+        </div>
         
-        <button onclick="registrarVenta()">Vender 💸</button>
+        <div class="grid-2">
+            <select id="vmetodo">
+                <option value="Efectivo">💵 Efectivo Bonito</option>
+                <option value="Yape">📱 Yape Mágico</option>
+                <option value="Plin">📱 Plin Cariñoso</option>
+                <option value="Transferencia">🏦 Transfe Directa</option>
+            </select>
+            <input id="vprecio" type="number" placeholder="Precio Unit." readonly class="input-readonly">
+        </div>
+
+        <input id="vtotal" type="number" placeholder="Total a Pagar ✨" readonly class="input-readonly total-destacado">
+        <button onclick="registrarVenta()">¡Vender y Brillar! 💸</button>
 
         <h3>📝 Historial de Ventas</h3>
         <div class="table-container">
           <table id="tablaVentas">
             <thead>
               <tr>
-                <th>Prenda</th><th>Cant.</th><th>Total</th><th>Ganancia</th><th>Fecha</th><th>Acciones</th>
+                <th>Prenda</th><th>Cant.</th><th>Total</th><th>Ganancia</th><th>Método</th><th>Acciones</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -92,18 +113,85 @@
       </div>
     </div>
 
-    <h2 style="text-align:center; margin-top: 30px;">📊 Ingresos por Ventas</h2>
+    <div class="container-flex" style="margin-top: 25px;">
+      <div class="box box-warning">
+        <h2>💸 Gastos Extra 📈</h2>
+        <p style="margin-top:0;">¿Gastaste en cositas para la tienda? Regístralo aquí.</p>
+        <div class="grid-2">
+          <input id="gdesc" placeholder="¿En qué gastaste?">
+          <input id="gmonto" type="number" placeholder="Monto (S/)">
+        </div>
+        <button onclick="registrarGasto()" class="btn-warning">Registrar Gasto 📉</button>
+        
+        <h3>📋 Historial de Gastos</h3>
+        <div class="table-container">
+          <table id="tablaGastos">
+            <thead>
+              <tr><th>Descripción</th><th>Monto</th><th>Fecha</th><th>Acciones</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="box box-info">
+        <h2>⚖️ Ajuste de Ganancia ✨</h2>
+        <p style="margin-top:0;">¿Dinero extra o retiro personal? Regístralo aquí.</p>
+        <div class="grid-2">
+          <input id="adesc" placeholder="Motivo (Ej. Propina, Retiro)">
+          <input id="amonto" type="number" placeholder="Monto (S/)">
+        </div>
+        <select id="atipo" style="margin-top: 10px;">
+          <option value="restar">➖ Sacar de la tienda (Retiro)</option>
+          <option value="sumar">➕ Sumar a la ganancia (Ingreso)</option>
+        </select>
+        <button onclick="registrarAjuste()" class="btn-info">Guardar Ajuste ✨</button>
+        
+        <h3>📋 Historial de Ajustes</h3>
+        <div class="table-container">
+          <table id="tablaAjustes">
+            <thead>
+              <tr><th>Motivo</th><th>Monto</th><th>Tipo</th><th>Fecha</th><th>Acciones</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="text-align:center; margin-top: 40px; font-size: 2em; color: #ff66a3;">📊 Mis Brillos del Mes</h2>
     <div class="dashboard">
-      <div class="card"><h3>Hoy ☀️</h3><h2 id="ventasHoy">0</h2></div>
-      <div class="card"><h3>Semana 📅</h3><h2 id="ventasSemana">0</h2></div>
-      <div class="card"><h3>Quincena 🌷</h3><h2 id="ventasQuincena">0</h2></div>
-      <div class="card"><h3>Mes 🌙</h3><h2 id="ventasMes">0</h2></div>
+      <div class="card card-plain"><h3>Hoy ☀️</h3><h2 id="ventasHoy">0</h2></div>
+      <div class="card card-plain"><h3>Semana 📅</h3><h2 id="ventasSemana">0</h2></div>
+      <div class="card card-plain"><h3>Quincena 🌷</h3><h2 id="ventasQuincena">0</h2></div>
+      <div class="card card-plain"><h3>Mes 🌙</h3><h2 id="ventasMes">0</h2></div>
     </div>
     
-    <button onclick="cerrarCaja()" class="btn-cerrar">Cerrar Caja del Día 🔐</button>
+    <div class="box box-success" style="margin-top: 30px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+     <div class="box box-primary" style="margin-top: 30px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; border-color: #66ccff;">
+      <h2 style="color: #3399ff; justify-content: center;">💾 Respaldo de Magia</h2>
+      <p>Descarga tus datos para guardarlos o pasarlos de tu celular a la compu.</p>
+      <div class="grid-2">
+        <button onclick="descargarRespaldo()" style="background: linear-gradient(135deg, #66ccff 0%, #3399ff 100%); margin-top: 0;">⬇️ Descargar Copia</button>
+        <div>
+          <input type="file" id="fileImport" accept=".json" style="display: none;" onchange="cargarRespaldo(event)">
+          <button onclick="document.getElementById('fileImport').click()" style="background: linear-gradient(135deg, #ffb366 0%, #ff9933 100%); margin-top: 0;">⬆️ Subir Copia</button>
+        </div>
+      </div>
+    </div>
+      <h2>🔐 Cerrar Caja Mágica del Día 🔐</h2>
+      <p>Ingresa con cuánto sencillo empezaste para que todo cuadre perfecto.</p>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
+        <div>
+          <label style="font-weight: bold; color: #555;">🪙 Fondo de Caja Inicial (S/):</label>
+          <input id="fondoCaja" type="number" placeholder="Ej. 50" style="width: 150px; margin-left: 10px;">
+        </div>
+        <button onclick="cerrarCaja()" class="btn-success" style="margin-top: 0; width: auto; padding: 12px 30px; font-size: 18px;">¡Cerrar Caja Mágica! 💖</button>
+      </div>
+    </div>
 
-    <div class="box" style="margin-top: 20px;">
-      <h2>📊 Gráfico de Ingresos</h2>
+    <div class="box" style="margin-top: 30px;">
+      <h2>📊 Gráfico de Brillos Diarios</h2>
       <canvas id="grafico"></canvas>
     </div>
 
@@ -111,4 +199,7 @@
 
   <script src="script.js"></script>
 </body>
+</html>
+</body>
+
 </html>
