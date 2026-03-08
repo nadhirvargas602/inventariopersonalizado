@@ -1,149 +1,328 @@
-/* DISEÑO KAWAII */
+/* DISEÑO SUPER KAWAII Y MODERNO */
+:root {
+  --rosa-principal: #ffccdf;
+  --rosa-fuerte: #ff66a3;
+  --rosa-pastel: #fff0f5;
+  --azul-pastel: #e6f7ff;
+  --azul-fuerte: #66a3ff;
+  --verde-pastel: #e6fffa;
+  --verde-fuerte: #00b386;
+  --morado-pastel: #f9f0ff;
+  --morado-fuerte: #9933ff;
+  --oro-pastel: #fff9e6;
+  --oro-fuerte: #cc9900;
+  --gris-texto: #555;
+}
+
 body {
   font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(135deg, #ffe6f2 0%, #fff0f5 100%);
+  background-color: var(--rosa-pastel);
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmRkZTkiIGZpbGwtb3BhY2l0eT0iMC41Ij48cGF0aCBkPSJNMTAgOGM1IDUgNSA5IDAgMTQtNS01LTUtOSAwLTE0eiIvPjwvZz48L2c+PC9zdmc+'); /* Un patrón sutil de corazones/flores */
   margin: 0;
-  padding: 0;
-  color: #555;
+  padding: 20px;
+  color: var(--gris-texto);
+  font-size: 16px;
 }
 
-h1 { 
-  text-align: center; 
-  color: #ff66a3; 
-  margin-top: 30px; 
-  font-size: 2.5em;
-  text-shadow: 2px 2px 0px #fff;
-}
-
-h2, h3 { color: #ff66a3; margin-top: 0; }
-
-/* LOGIN */
-#loginBox {
-  max-width: 350px;
-  margin: 100px auto;
-  background: white;
-  padding: 40px 30px;
-  border-radius: 25px;
+h1 {
   text-align: center;
-  box-shadow: 0 10px 25px rgba(255, 153, 204, 0.3);
-  border: 3px solid #ffcce0;
+  color: var(--rosa-fuerte);
+  font-size: 3em;
+  text-shadow: 2px 2px 0px #fff, 4px 4px 0px rgba(255, 102, 163, 0.1);
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
-/* SISTEMA */
-#sistema { display: none; padding: 20px; max-width: 1200px; margin: auto; }
+h2 {
+  color: var(--rosa-fuerte);
+  font-size: 1.8em;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+h3 {
+  color: #ff80b3;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 1.3em;
+}
+
+/* LOGIN KAWAII */
+#loginBox {
+  background: white;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 50px 40px;
+  border-radius: 30px;
+  box-shadow: 0 15px 40px rgba(255, 102, 163, 0.2);
+  text-align: center;
+  border: 4px solid var(--rosa-principal);
+}
+
+#loginBox h2 { justify-content: center; }
+
+/* Contenedores Flexibles para ordenación */
+.container-flex {
+  display: flex;
+  flex-wrap: wrap;
   gap: 25px;
+  justify-content: center;
 }
 
+/* CAJAS PRINCIPALES (BOXES) KAWAII */
 .box {
   background: white;
-  padding: 25px;
+  padding: 30px;
   border-radius: 25px;
-  box-shadow: 0 10px 20px rgba(255, 153, 204, 0.15);
-  border: 2px solid #ffebf0;
-  transition: transform 0.3s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  flex: 1;
+  min-width: 300px; /* Asegura que se vean bien en móvil */
+  max-width: 100%;
+  border-top: 8px solid var(--rosa-principal);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
-.box:hover { transform: translateY(-5px); }
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(255, 102, 163, 0.1);
+}
 
-/* INPUTS Y BOTONES */
-input, select, button { 
-  width: 100%; 
-  padding: 12px; 
-  margin: 8px 0 15px 0; 
-  border-radius: 15px; 
-  border: 2px solid #ffcce0; 
-  box-sizing: border-box;
+.box h2 {
+  padding-bottom: 10px;
+  border-bottom: 2px dashed var(--rosa-principal);
+}
+
+/* Estilos específicos de Box */
+.box-primary { border-top-color: var(--rosa-principal); }
+.box-secondary { border-top-color: var(--azul-pastel); }
+.box-warning { border-top-color: #ffcccc; } /* Rosa suave para gastos */
+.box-info { border-top-color: var(--morado-pastel); }
+.box-success { border-top-color: var(--verde-pastel); }
+
+/* INPUTS, SELECTS Y BOTONES KAWAII */
+input, select {
+  width: 100%;
+  padding: 14px 18px;
+  margin: 10px 0;
+  border: 3px solid var(--rosa-principal);
+  border-radius: 15px;
   font-family: 'Quicksand', sans-serif;
-  font-size: 15px;
-  outline: none;
+  font-size: 16px;
+  box-sizing: border-box;
   transition: all 0.3s;
+  background-color: #fff;
 }
 
 input:focus, select:focus {
-  border-color: #ff66a3;
-  box-shadow: 0 0 8px rgba(255, 102, 163, 0.3);
+  border-color: var(--rosa-fuerte);
+  outline: none;
+  box-shadow: 0 0 12px rgba(255, 102, 163, 0.2);
 }
 
-.input-readonly { background: #fdf2f8; color: #888; border-color: #fbebf3;}
-.total-destacado { background: #e6fffa; color: #00b386; font-weight: bold; font-size: 18px; border-color: #b3ffec;}
+.input-readonly {
+  background-color: #fdf2f8;
+  color: #777;
+  border-color: #fbebf3;
+}
 
-button { 
-  background: linear-gradient(135deg, #ff99cc 0%, #ff66a3 100%); 
-  color: white; 
-  border: none; 
-  cursor: pointer;
+.total-destacado {
   font-weight: bold;
-  font-size: 16px;
-  box-shadow: 0 4px 10px rgba(255, 102, 163, 0.3);
+  color: var(--verde-fuerte);
+  font-size: 1.2em;
+  background-color: var(--verde-pastel);
+  border-color: #b3ffec;
 }
 
-button:hover { 
-  background: linear-gradient(135deg, #ff66a3 0%, #ff4d94 100%);
-  transform: scale(1.02);
+button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #ff99c2 0%, #ff4d88 100%);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Quicksand', sans-serif;
+  margin-top: 15px;
+  box-shadow: 0 5px 15px rgba(255, 77, 136, 0.3);
 }
 
-/* TABLAS */
-.table-container { overflow-x: auto; margin-bottom: 10px; }
-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 10px; font-size: 14px; }
-th, td { padding: 12px; text-align: center; border-bottom: 1px solid #ffebf0; }
-th { background: #ffcce0; color: #d81b60; border-top: 1px solid #ffebf0; font-weight: 700;}
-th:first-child { border-top-left-radius: 15px; }
-th:last-child { border-top-right-radius: 15px; }
-tr:hover td { background: #fff5f8; }
-td button { padding: 6px; margin: 0; border-radius: 10px; box-shadow: none; font-size: 12px; width: auto;}
-
-/* ALERTA DE STOCK (Aplica desde JS) */
-.alerta-stock { color: #ff3333; font-weight: bold; background: #ffe6e6; padding: 4px 8px; border-radius: 10px; }
-
-/* DASHBOARD */
-.dashboard { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 25px; }
-.card {
-  flex: 1;
-  min-width: 150px;
-  background: linear-gradient(135deg, #ffffff 0%, #fff5f8 100%);
-  padding: 20px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 8px 15px rgba(255, 153, 204, 0.2);
-  border: 2px solid #ffcce0;
+button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(255, 77, 136, 0.5);
 }
-.card h2 { font-size: 2em; margin-bottom: 0; }
 
-/* BOTONES ESPECIALES */
-.btn-cerrar { background: linear-gradient(135deg, #d81b60 0%, #b30047 100%); margin-top: 25px; padding: 15px; font-size: 18px; border-radius: 20px;}
-.btn-cerrar:hover { background: linear-gradient(135deg, #b30047 0%, #800033 100%); }
-.btn-export { background: linear-gradient(135deg, #66ccff 0%, #3399ff 100%); margin-top: 10px; font-size: 14px; box-shadow: 0 4px 10px rgba(51, 153, 255, 0.3); }
-.btn-export:hover { background: linear-gradient(135deg, #3399ff 0%, #0073e6 100%); }
-
-/* RESPONSIVE */
-@media(max-width: 900px) {
-  .container { grid-template-columns: 1fr; }
+/* Botones específicos */
+.btn-export {
+  background: linear-gradient(135deg, #80dfff 0%, #00bfff 100%);
+  margin-top: 15px;
+  box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3);
 }
-/* NUEVOS ESTILOS PARA CONTROL TOTAL */
+.btn-export:hover { box-shadow: 0 8px 20px rgba(0, 191, 255, 0.5); }
+
+.btn-success {
+  background: linear-gradient(135deg, var(--verde-fuerte) 0%, #009973 100%);
+  box-shadow: 0 5px 15px rgba(0, 179, 134, 0.3);
+}
+.btn-success:hover { box-shadow: 0 8px 20px rgba(0, 179, 134, 0.5); }
+
+.btn-warning {
+  background: linear-gradient(135deg, #ff9966 0%, #ff4d4d 100%);
+  box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+}
+.btn-warning:hover { box-shadow: 0 8px 20px rgba(255, 77, 77, 0.5); }
+
+.btn-info {
+  background: linear-gradient(135deg, var(--morado-fuerte) 0%, #8000ff 100%);
+  box-shadow: 0 5px 15px rgba(153, 51, 255, 0.3);
+}
+.btn-info:hover { box-shadow: 0 8px 20px rgba(153, 51, 255, 0.5); }
+
+.btn-refresh {
+  background: #fff;
+  color: var(--rosa-fuerte);
+  border: 3px solid var(--rosa-fuerte);
+  width: auto;
+  padding: 10px 20px;
+  box-shadow: 0 4px 10px rgba(255, 102, 163, 0.1);
+}
+.btn-refresh:hover { background: var(--rosa-fuerte); color: #fff; box-shadow: 0 6px 15px rgba(255, 102, 163, 0.3); }
+
+.btn-acciones button {
+  width: auto;
+  padding: 8px 12px;
+  margin: 3px;
+  font-size: 14px;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+/* Grillas */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 15px;
 }
-.dashboard-top {
+
+/* TABLAS KAWAII */
+.table-container {
+  overflow-x: auto;
+  margin-top: 15px;
+  border-radius: 15px;
+  border: 2px solid var(--rosa-principal);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 450px;
+  font-size: 14px;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid var(--rosa-pastel);
+}
+
+th {
+  background-color: #ffe6f2;
+  color: var(--rosa-fuerte);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover td { background-color: #fffafc; }
+
+.alerta-stock {
+  color: red;
+  font-weight: bold;
+  background-color: #ffe6e6;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
+/* DASHBOARD Y CARTAS KAWAII */
+.dashboard, .dashboard-top {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
-  margin-bottom: 25px;
+  justify-content: center;
+  margin-bottom: 30px;
 }
-.card-gold {
-  flex: 1;
-  background: linear-gradient(135deg, #fff9e6 0%, #fff0b3 100%);
-  padding: 20px;
+
+.card {
+  background: white;
+  padding: 25px;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 8px 15px rgba(255, 204, 0, 0.2);
-  border: 2px solid #ffe680;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  flex: 1;
+  min-width: 200px;
+  transition: 0.3s;
+  border: 2px solid var(--rosa-principal);
 }
-.card-gold h3 { color: #b38600; font-size: 1.2em; margin-bottom: 5px;}
-.card-gold p { color: #806000; font-size: 0.9em; margin-top: 0; margin-bottom: 15px;}
-.card-gold h2 { color: #cc9900; font-size: 2.2em; margin: 0;}
-.btn-acciones { display: flex; gap: 5px; justify-content: center;}
+
+.card:hover { transform: translateY(-3px); }
+
+.card h2 {
+  font-size: 2.2em;
+  margin-bottom: 0;
+  justify-content: center;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.1em;
+  color: var(-- gris-texto);
+}
+
+.card p {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+/* Estilos de cartas del top */
+.card-pastel-pink { background-color: var(--rosa-pastel); border-color: var(--rosa-principal); h2{color: var(--rosa-fuerte);}}
+.card-pastel-blue { background-color: var(--azul-pastel); border-color: #cceeff; }
+.card-pastel-green { background-color: var(--verde-pastel); border-color: #b3ffec; }
+
+/* SWEETALERT PERSONALIZADO */
+.btn-swal-confirm {
+  background: linear-gradient(135deg, #ff99c2 0%, #ff4d88 100%) !important;
+  color: white !important;
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+  font-family: 'Quicksand' !important;
+  font-weight: bold !important;
+  border: none !important;
+  margin: 10px !important;
+}
+.btn-swal-cancel {
+  background: #fdf2f8 !important;
+  color: #777 !important;
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+  font-family: 'Quicksand' !important;
+  border: 1px solid #ffebf3 !important;
+  margin: 10px !important;
+}
+
+/* Gráfico */
+#grafico { max-height: 400px; }
+
+/* Responsive */
+@media(max-width: 900px) {
+  .box { max-width: 100%; }
+}
