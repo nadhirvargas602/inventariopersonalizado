@@ -24,9 +24,8 @@
   <div id="sistema" style="display: none;">
     
     <div style="text-align: right; margin-bottom: 20px;">
-      <button onclick="location.reload()" class="btn-refresh">🔄 Recargar Magia</button>
+      <button onclick="borrarTodo()" class="btn-refresh" style="color: #ff4d4d; border-color: #ff4d4d; box-shadow: 0 4px 10px rgba(255, 77, 77, 0.2);">🚨 Borrar TODO el Sistema</button>
     </div>
-
     <div class="dashboard-top">
       <div class="card card-pastel-pink">
         <h3>📦 Valor de mi Inventario 💖</h3>
@@ -34,8 +33,8 @@
         <h2 id="valorInventario">S/ 0.00</h2>
       </div>
       <div class="card card-pastel-blue">
-        <h3>🔄 Capital Recuperado 🦋</h3>
-        <p>El costo de lo que ya vendiste</p>
+        <h3>🔄 Capital Disponible 🦋</h3>
+        <p>Capital real en la tienda</p>
         <h2 id="capitalMes" style="color:#66a3ff;">S/ 0.00</h2>
       </div>
       <div class="card card-pastel-green">
@@ -114,9 +113,30 @@
     </div>
 
     <div class="container-flex" style="margin-top: 25px;">
+      
+      <div class="box box-success">
+        <h2>🌱 Reinvertir Capital (Compras)</h2>
+        <p style="margin-top:0;">¿Compraste más mercadería? Descuéntalo de tu capital aquí.</p>
+        <div class="grid-2">
+          <input id="rdesc" placeholder="Ej. Compra de blusas">
+          <input id="rmonto" type="number" placeholder="Monto invertido (S/)">
+        </div>
+        <button onclick="registrarReinversion()" class="btn-success">Descontar Capital 📦</button>
+        
+        <h3>📋 Historial de Reinversión</h3>
+        <div class="table-container">
+          <table id="tablaReinversiones">
+            <thead>
+              <tr><th>Descripción</th><th>Monto</th><th>Fecha</th><th>Acciones</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
       <div class="box box-warning">
         <h2>💸 Gastos Extra 📈</h2>
-        <p style="margin-top:0;">¿Gastaste en cositas para la tienda? Regístralo aquí.</p>
+        <p style="margin-top:0;">¿Gastaste en bolsas, pasajes? Regístralo aquí.</p>
         <div class="grid-2">
           <input id="gdesc" placeholder="¿En qué gastaste?">
           <input id="gmonto" type="number" placeholder="Monto (S/)">
@@ -133,30 +153,6 @@
           </table>
         </div>
       </div>
-
-      <div class="box box-info">
-        <h2>⚖️ Ajuste de Ganancia ✨</h2>
-        <p style="margin-top:0;">¿Dinero extra o retiro personal? Regístralo aquí.</p>
-        <div class="grid-2">
-          <input id="adesc" placeholder="Motivo (Ej. Propina, Retiro)">
-          <input id="amonto" type="number" placeholder="Monto (S/)">
-        </div>
-        <select id="atipo" style="margin-top: 10px;">
-          <option value="restar">➖ Sacar de la tienda (Retiro)</option>
-          <option value="sumar">➕ Sumar a la ganancia (Ingreso)</option>
-        </select>
-        <button onclick="registrarAjuste()" class="btn-info">Guardar Ajuste ✨</button>
-        
-        <h3>📋 Historial de Ajustes</h3>
-        <div class="table-container">
-          <table id="tablaAjustes">
-            <thead>
-              <tr><th>Motivo</th><th>Monto</th><th>Tipo</th><th>Fecha</th><th>Acciones</th></tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
     </div>
 
     <h2 style="text-align:center; margin-top: 40px; font-size: 2em; color: #ff66a3;">📊 Mis Brillos del Mes</h2>
@@ -167,26 +163,29 @@
       <div class="card card-plain"><h3>Mes 🌙</h3><h2 id="ventasMes">0</h2></div>
     </div>
     
-    <div class="box box-success" style="margin-top: 30px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
-     <div class="box box-primary" style="margin-top: 30px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; border-color: #66ccff;">
-      <h2 style="color: #3399ff; justify-content: center;">💾 Respaldo de Magia</h2>
-      <p>Descarga tus datos para guardarlos o pasarlos de tu celular a la compu.</p>
-      <div class="grid-2">
-        <button onclick="descargarRespaldo()" style="background: linear-gradient(135deg, #66ccff 0%, #3399ff 100%); margin-top: 0;">⬇️ Descargar Copia</button>
-        <div>
-          <input type="file" id="fileImport" accept=".json" style="display: none;" onchange="cargarRespaldo(event)">
-          <button onclick="document.getElementById('fileImport').click()" style="background: linear-gradient(135deg, #ffb366 0%, #ff9933 100%); margin-top: 0;">⬆️ Subir Copia</button>
+    <div class="container-flex" style="margin-top: 30px;">
+      <div class="box box-primary" style="text-align: center; border-color: #66ccff;">
+        <h2 style="color: #3399ff; justify-content: center;">💾 Respaldo de Magia</h2>
+        <p>Descarga tus datos o pásalos del celular a la compu.</p>
+        <div class="grid-2">
+          <button onclick="descargarRespaldo()" style="background: linear-gradient(135deg, #66ccff 0%, #3399ff 100%); margin-top: 0;">⬇️ Descargar Copia</button>
+          <div>
+            <input type="file" id="fileImport" accept=".json" style="display: none;" onchange="cargarRespaldo(event)">
+            <button onclick="document.getElementById('fileImport').click()" style="background: linear-gradient(135deg, #ffb366 0%, #ff9933 100%); margin-top: 0;">⬆️ Subir Copia</button>
+          </div>
         </div>
       </div>
-    </div>
-      <h2>🔐 Cerrar Caja Mágica del Día 🔐</h2>
-      <p>Ingresa con cuánto sencillo empezaste para que todo cuadre perfecto.</p>
-      <div style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
-        <div>
-          <label style="font-weight: bold; color: #555;">🪙 Fondo de Caja Inicial (S/):</label>
-          <input id="fondoCaja" type="number" placeholder="Ej. 50" style="width: 150px; margin-left: 10px;">
+
+      <div class="box box-success" style="text-align: center;">
+        <h2>🔐 Cerrar Caja Mágica 🔐</h2>
+        <p>Ingresa con cuánto sencillo empezaste para que todo cuadre perfecto.</p>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
+          <div>
+            <label style="font-weight: bold; color: #555;">🪙 Fondo de Caja (S/):</label>
+            <input id="fondoCaja" type="number" placeholder="Ej. 50" style="width: 150px; margin-left: 10px;">
+          </div>
+          <button onclick="cerrarCaja()" class="btn-success" style="margin-top: 0; width: auto; padding: 12px 30px; font-size: 18px;">¡Cerrar Día! 💖</button>
         </div>
-        <button onclick="cerrarCaja()" class="btn-success" style="margin-top: 0; width: auto; padding: 12px 30px; font-size: 18px;">¡Cerrar Caja Mágica! 💖</button>
       </div>
     </div>
 
