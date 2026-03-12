@@ -1,4 +1,4 @@
-DERNO */
+/* DISEÑO SUPER KAWAII Y MODERNO */
 :root {
   --rosa-principal: #ffccdf;
   --rosa-fuerte: #ff66a3;
@@ -7,8 +7,6 @@ DERNO */
   --azul-fuerte: #66a3ff;
   --verde-pastel: #e6fffa;
   --verde-fuerte: #00b386;
-  --morado-pastel: #f9f0ff;
-  --morado-fuerte: #9933ff;
   --oro-pastel: #fff9e6;
   --oro-fuerte: #cc9900;
   --gris-texto: #555;
@@ -17,7 +15,7 @@ DERNO */
 body {
   font-family: 'Quicksand', sans-serif;
   background-color: var(--rosa-pastel);
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmRkZTkiIGZpbGwtb3BhY2l0eT0iMC41Ij48cGF0aCBkPSJNMTAgOGM1IDUgNSA5IDAgMTQtNS01LTUtOSAwLTE0eiIvPjwvZz48L2c+PC9zdmc+'); /* Un patrón sutil de corazones/flores */
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmRkZTkiIGZpbGwtb3BhY2l0eT0iMC41Ij48cGF0aCBkPSJNMTAgOGM1IDUgNSA5IDAgMTQtNS01LTUtOSAwLTE0eiIvPjwvZz48L2c+PC9zdmc+'); 
   margin: 0;
   padding: 20px;
   color: var(--gris-texto);
@@ -63,7 +61,6 @@ h3 {
 
 #loginBox h2 { justify-content: center; }
 
-/* Contenedores Flexibles para ordenación */
 .container-flex {
   display: flex;
   flex-wrap: wrap;
@@ -71,14 +68,14 @@ h3 {
   justify-content: center;
 }
 
-/* CAJAS PRINCIPALES (BOXES) KAWAII */
+/* CAJAS PRINCIPALES */
 .box {
   background: white;
   padding: 30px;
   border-radius: 25px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.05);
   flex: 1;
-  min-width: 300px; /* Asegura que se vean bien en móvil */
+  min-width: 300px; 
   max-width: 100%;
   border-top: 8px solid var(--rosa-principal);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -96,14 +93,12 @@ h3 {
   border-bottom: 2px dashed var(--rosa-principal);
 }
 
-/* Estilos específicos de Box */
 .box-primary { border-top-color: var(--rosa-principal); }
 .box-secondary { border-top-color: var(--azul-pastel); }
-.box-warning { border-top-color: #ffcccc; } /* Rosa suave para gastos */
-.box-info { border-top-color: var(--morado-pastel); }
+.box-warning { border-top-color: #ffcccc; } 
 .box-success { border-top-color: var(--verde-pastel); }
 
-/* INPUTS, SELECTS Y BOTONES KAWAII */
+/* INPUTS Y BOTONES */
 input, select {
   width: 100%;
   padding: 14px 18px;
@@ -158,171 +153,41 @@ button:hover {
   box-shadow: 0 8px 20px rgba(255, 77, 136, 0.5);
 }
 
-/* Botones específicos */
-.btn-export {
-  background: linear-gradient(135deg, #80dfff 0%, #00bfff 100%);
-  margin-top: 15px;
-  box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3);
-}
-.btn-export:hover { box-shadow: 0 8px 20px rgba(0, 191, 255, 0.5); }
-
-.btn-success {
-  background: linear-gradient(135deg, var(--verde-fuerte) 0%, #009973 100%);
-  box-shadow: 0 5px 15px rgba(0, 179, 134, 0.3);
-}
-.btn-success:hover { box-shadow: 0 8px 20px rgba(0, 179, 134, 0.5); }
-
-.btn-warning {
-  background: linear-gradient(135deg, #ff9966 0%, #ff4d4d 100%);
-  box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
-}
-.btn-warning:hover { box-shadow: 0 8px 20px rgba(255, 77, 77, 0.5); }
-
-.btn-info {
-  background: linear-gradient(135deg, var(--morado-fuerte) 0%, #8000ff 100%);
-  box-shadow: 0 5px 15px rgba(153, 51, 255, 0.3);
-}
-.btn-info:hover { box-shadow: 0 8px 20px rgba(153, 51, 255, 0.5); }
-
-.btn-refresh {
-  background: #fff;
-  color: var(--rosa-fuerte);
-  border: 3px solid var(--rosa-fuerte);
-  width: auto;
-  padding: 10px 20px;
-  box-shadow: 0 4px 10px rgba(255, 102, 163, 0.1);
-}
+.btn-export { background: linear-gradient(135deg, #80dfff 0%, #00bfff 100%); box-shadow: 0 5px 15px rgba(0, 191, 255, 0.3); }
+.btn-success { background: linear-gradient(135deg, var(--verde-fuerte) 0%, #009973 100%); box-shadow: 0 5px 15px rgba(0, 179, 134, 0.3); }
+.btn-warning { background: linear-gradient(135deg, #ff9966 0%, #ff4d4d 100%); box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3); }
+.btn-refresh { background: #fff; color: var(--rosa-fuerte); border: 3px solid var(--rosa-fuerte); width: auto; padding: 10px 20px; box-shadow: 0 4px 10px rgba(255, 102, 163, 0.1); }
 .btn-refresh:hover { background: var(--rosa-fuerte); color: #fff; box-shadow: 0 6px 15px rgba(255, 102, 163, 0.3); }
 
-.btn-acciones button {
-  width: auto;
-  padding: 8px 12px;
-  margin: 3px;
-  font-size: 14px;
-  border-radius: 10px;
-  box-shadow: none;
-}
+.btn-acciones button { width: auto; padding: 8px 12px; margin: 3px; font-size: 14px; border-radius: 10px; box-shadow: none; }
 
-/* Grillas */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 
 /* TABLAS KAWAII */
-.table-container {
-  overflow-x: auto;
-  margin-top: 15px;
-  border-radius: 15px;
-  border: 2px solid var(--rosa-principal);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 450px;
-  font-size: 14px;
-}
-
-th, td {
-  padding: 12px 15px;
-  text-align: center;
-  border-bottom: 1px solid var(--rosa-pastel);
-}
-
-th {
-  background-color: #ffe6f2;
-  color: var(--rosa-fuerte);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.9em;
-  letter-spacing: 1px;
-}
-
+.table-container { overflow-x: auto; margin-top: 15px; border-radius: 15px; border: 2px solid var(--rosa-principal); }
+table { width: 100%; border-collapse: collapse; min-width: 450px; font-size: 14px; }
+th, td { padding: 12px 15px; text-align: center; border-bottom: 1px solid var(--rosa-pastel); }
+th { background-color: #ffe6f2; color: var(--rosa-fuerte); font-weight: 700; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; }
 tr:last-child td { border-bottom: none; }
 tr:hover td { background-color: #fffafc; }
+.alerta-stock { color: red; font-weight: bold; background-color: #ffe6e6; padding: 3px 6px; border-radius: 5px; }
 
-.alerta-stock {
-  color: red;
-  font-weight: bold;
-  background-color: #ffe6e6;
-  padding: 3px 6px;
-  border-radius: 5px;
-}
-
-/* DASHBOARD Y CARTAS KAWAII */
-.dashboard, .dashboard-top {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  flex: 1;
-  min-width: 200px;
-  transition: 0.3s;
-  border: 2px solid var(--rosa-principal);
-}
-
+/* DASHBOARD */
+.dashboard, .dashboard-top { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 30px; }
+.card { background: white; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.05); flex: 1; min-width: 200px; transition: 0.3s; border: 2px solid var(--rosa-principal); }
 .card:hover { transform: translateY(-3px); }
+.card h2 { font-size: 2.2em; margin-bottom: 0; justify-content: center; }
+.card h3 { margin: 0; font-size: 1.1em; color: var(--gris-texto); }
+.card p { font-size: 12px; color: #888; margin-top: 2px; margin-bottom: 10px; }
 
-.card h2 {
-  font-size: 2.2em;
-  margin-bottom: 0;
-  justify-content: center;
-}
-
-.card h3 {
-  margin: 0;
-  font-size: 1.1em;
-  color: var(-- gris-texto);
-}
-
-.card p {
-  font-size: 12px;
-  color: #888;
-  margin-top: 2px;
-  margin-bottom: 10px;
-}
-
-/* Estilos de cartas del top */
 .card-pastel-pink { background-color: var(--rosa-pastel); border-color: var(--rosa-principal); h2{color: var(--rosa-fuerte);}}
 .card-pastel-blue { background-color: var(--azul-pastel); border-color: #cceeff; }
 .card-pastel-green { background-color: var(--verde-pastel); border-color: #b3ffec; }
 
-/* SWEETALERT PERSONALIZADO */
-.btn-swal-confirm {
-  background: linear-gradient(135deg, #ff99c2 0%, #ff4d88 100%) !important;
-  color: white !important;
-  border-radius: 12px !important;
-  padding: 12px 24px !important;
-  font-family: 'Quicksand' !important;
-  font-weight: bold !important;
-  border: none !important;
-  margin: 10px !important;
-}
-.btn-swal-cancel {
-  background: #fdf2f8 !important;
-  color: #777 !important;
-  border-radius: 12px !important;
-  padding: 12px 24px !important;
-  font-family: 'Quicksand' !important;
-  border: 1px solid #ffebf3 !important;
-  margin: 10px !important;
-}
+/* SWEETALERT */
+.btn-swal-confirm { background: linear-gradient(135deg, #ff99c2 0%, #ff4d88 100%) !important; color: white !important; border-radius: 12px !important; padding: 12px 24px !important; font-family: 'Quicksand' !important; font-weight: bold !important; border: none !important; margin: 10px !important; }
+.btn-swal-cancel { background: #fdf2f8 !important; color: #777 !important; border-radius: 12px !important; padding: 12px 24px !important; font-family: 'Quicksand' !important; border: 1px solid #ffebf3 !important; margin: 10px !important; }
 
-/* Gráfico */
 #grafico { max-height: 400px; }
 
-/* Responsive */
-@media(max-width: 900px) {
-  .box { max-width: 100%; }
-}
+@media(max-width: 900px) { .box { max-width: 100%; } }
